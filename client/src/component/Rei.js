@@ -24,7 +24,7 @@ const Rei = () => {
 
     const {name, email, phoneno, password, cpassword} = user;
     
-    const response = await fetch("https://mern1-two.vercel.app/register", {
+    const response = await fetch("/register", {
       method:"POST",
       headers:{
         "Content-Type" :"application/json",

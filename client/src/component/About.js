@@ -9,7 +9,7 @@ const About = () => {
 
   const callAboutPage = async () => {
     try{
-      const response = await fetch("https://mern1-two.vercel.app/about",{
+      const response = await fetch("/about",{
         method:"GET",
         headers:{
           Accept :"application/json",
