@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const express = require('express');
-const cors = require("cors");
+// const cors = require("cors");
 const cookieParser = require('cookie-parser');
 const app= express();
 app.use(cookieParser());
@@ -17,9 +17,9 @@ require('./db/conn');
 
 app.use(express.json());
 
-app.use(cors({
-    origin:"*"
-}))
+// app.use(cors({
+//     origin:"*"
+// }))
 
 // for routing using express
 app.use(require('./router/auth'));
@@ -35,14 +35,14 @@ const PORT = process.env.PORT;
 // }
 
 
-if(process.env.NODE_ENV === "production"){
+// if(process.env.NODE_ENV === "production"){
 
-    app.use(express.static("client/build"));
+//     app.use(express.static("client/build"));
 
-    app.get("*",(req,res) => {
-        res.sendFile(path.resolve(__dirname,"client","build","index.html"));
-    })
-}
+//     app.get("*",(req,res) => {
+//         res.sendFile(path.resolve(__dirname,"client","build","index.html"));
+//     })
+// }
 
 // app.get('/about',middelware,(req,res)=>{
 //     res.send(`About hello world`)
