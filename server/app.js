@@ -9,6 +9,9 @@ app.use(cookieParser());
 
 dotenv.config({path:'./config.env'});
 
+app.get('/', (req,res) =>{
+    res.send(`Hello World.`)
+});
 // for connection using mongoose
 require('./db/conn');
 
@@ -40,9 +43,6 @@ if(process.env.NODE_ENV === "production"){
         res.sendFile(path.resolve(__dirname,"client","build","index.html"));
     })
 }
-// app.get('/', (req,res) =>{
-//     res.send(`Hello World.`)
-// });
 
 // app.get('/about',middelware,(req,res)=>{
 //     res.send(`About hello world`)
