@@ -7,6 +7,13 @@ const app= express();
 app.use(cookieParser());
 // app.use(require('cookie-parser'));
 
+// Allow requests from 'https://mern-frontend-cyan.vercel.app'
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://mern-frontend-cyan.vercel.app');
+    next();
+  });
+  
+
 dotenv.config({path:'./config.env'});
 
 app.get('/', (req,res) =>{
