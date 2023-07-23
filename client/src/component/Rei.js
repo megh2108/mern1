@@ -39,7 +39,7 @@ const Rei = () => {
 
     const res = await response.json();
 
-    if(res.status === 422 || !res){
+    if(response.status === 422 || !res){
       window.alert("Invalid registration");
       console.log("Invalid registration");
     }else{
