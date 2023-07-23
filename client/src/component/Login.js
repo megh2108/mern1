@@ -25,7 +25,7 @@ const Login = () => {
     const res = await response.json();
     console.log(res);
 
-    if(response.status === 405 || !res){
+    if(response.status === 400 || !res){
       window.alert("Invalid credentials");
     }else{
       window.alert("Login successfull");
