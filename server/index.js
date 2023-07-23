@@ -7,11 +7,11 @@ const app= express();
 app.use(cookieParser());
 // app.use(require('cookie-parser'));
 
-// Allow requests from 'https://mern-frontend-cyan.vercel.app'
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://mern-frontend-cyan.vercel.app');
-    next();
-  });
+// // Allow requests from 'https://mern-frontend-cyan.vercel.app'
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', 'https://mern-frontend-cyan.vercel.app');
+//     next();
+//   });
   
 
 dotenv.config({path:'./config.env'});
@@ -24,9 +24,20 @@ require('./db/conn');
 
 app.use(express.json());
 
+
+
 app.use(cors({
     origin:"*"
 }))
+
+// Set the Access-Control-Allow-Origin header to allow requests from a specific domain
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://mern-frontend-cyan.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true'); // Allow credentials such as cookies
+    next();
+  });
 
 if(process.env.NODE_ENV === "production"){
 
