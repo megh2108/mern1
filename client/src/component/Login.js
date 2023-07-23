@@ -22,10 +22,10 @@ const Login = () => {
       }),
     });
 
-    const res = response.json();
+    const res = await response.json();
     console.log(res);
 
-    if(response.status === 400 || !res){
+    if(response.status === 405 || !res){
       window.alert("Invalid credentials");
     }else{
       window.alert("Login successfull");
