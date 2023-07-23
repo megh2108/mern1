@@ -11,7 +11,7 @@ const Login = () => {
   const loginUser = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('/log', {
+    const response = await fetch('https://mern-frontend-cyan.vercel.app/log', {
       method:"POST",
       headers:{
         "Content-Type" :"application/json"
